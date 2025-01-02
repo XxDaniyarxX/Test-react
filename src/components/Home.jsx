@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import axios from 'axios';
-import Header from './Header.jsx'
+import { Link } from 'react-router-dom';
+import Header from './Header.jsx';
 
 export default function Home() {
   const api = 'https://dummyjson.com/products';
@@ -27,7 +28,11 @@ export default function Home() {
               <h3>{product.brand}</h3>
               <h3 style={{ color: 'red' }}>{product.price}</h3>
             </div>
-            <button style={{ width: '313px', marginLeft: '3px', height: '40px', fontSize: '22px', backgroundColor: 'black', display: 'flex', alignItems: 'center', justifyContent: 'center', border: 'none', borderRadius: '8px', color: 'white' }}>Add To Card</button>
+            <Link to={`/product/${product.id}`} style={{ textDecoration: 'none', color: 'white' }}>
+              <button style={{ width: '313px', marginLeft: '3px', height: '40px', fontSize: '22px', backgroundColor: 'black', display: 'flex', alignItems: 'center', justifyContent: 'center', border: 'none', borderRadius: '8px', color: 'white' }}>
+                Смотреть детали
+              </button>
+            </Link>
           </div>
         ))}
       </div>
